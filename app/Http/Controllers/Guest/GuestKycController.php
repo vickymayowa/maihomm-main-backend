@@ -13,13 +13,9 @@ class GuestKycController extends Controller
             'identification_number' => 'required|string|max:255',
             'proof_of_address' => 'required|file|mimes:jpeg,png,pdf',
         ]);
-
-        // Get the authenticated user (guest)
-        $guest = Auth::user();  // Make sure this is returning a valid user model instance
-
-        // Perform operations on the user model (guest)
-        $guest->kyc_status = 'completed';  // Example of setting a field
-        $guest->save();  // This should work if $guest is an Eloquent model
+        $guest = Auth::user(); 
+        $guest->kyc_status = 'completed';  
+        $guest->save();
 
         return redirect()->route('guest.profile')->with('status', 'KYC completed successfully.');
     }
