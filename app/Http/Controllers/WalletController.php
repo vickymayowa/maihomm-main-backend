@@ -19,7 +19,6 @@ class WalletController extends Controller
 
         $wallet = $request->user()->wallet;
         $wallet->addFunds($request->amount);
-
         return response()->json(['message' => 'Funds added successfully', 'balance' => $wallet->balance], 200);
     }
 

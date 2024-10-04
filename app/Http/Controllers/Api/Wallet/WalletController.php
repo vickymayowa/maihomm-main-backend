@@ -24,7 +24,7 @@ class WalletController extends Controller
             $user = auth()->user();
             $wallet = WalletService::getByCurrencyType($user->id, CurrencyConstants::POUND_CURRENCY);
             $data = WalletResource::make($wallet);
-            return ApiHelper::validResponse("Wallet retrieved!", $data);
+            return ApiHelper::validResponse("Wallet retrieved!", $data); 
         } catch (WalletException $e) {
             return ApiHelper::problemResponse($e->getMessage(), ApiConstants::SERVER_ERR_CODE, null,  $e);
         } catch (Exception $e) {
