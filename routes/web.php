@@ -34,6 +34,10 @@ Route::prefix('guest')->as('guest.')->group(function () {
     Route::get('properties', [GuestPropertyController::class, 'index'])->name('properties.index');
     Route::get('properties/{property}', [GuestPropertyController::class, 'show'])->name('properties.show');
     
+    // KYC route for guests
+    Route::get('kyc', [GuestKycController::class, 'index'])->name('kyc.index');
+    Route::post('kyc', [GuestKycController::class, 'submit'])->name('kyc.submit');
+    
     // Example for a guest profile route
     Route::get('profile', [GuestProfileController::class, 'index'])->name('profile');
 });
